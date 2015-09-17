@@ -1,0 +1,47 @@
+Shiny Project
+========================================================
+author: firstusergit
+date: 15 Sep 2015
+
+
+========================================================
+
+In this project, we use Shiny app to display summary statistics of datasets
+
+User gets to choose 3 different datasets: rocks/pressure/cars
+
+User decides number of observations to display by input on textbox
+
+
+Shiny Code slide
+===============================
+
+This shiny app does the following
+- display summary of datasets: choice of rocks/pressure/cars
+
+- gives a head of data in dataset, display based on number of observations
+
+
+```{r, echo=TRUE}
+summary(cars)
+```
+
+Slide With Head Observations
+==============
+
+```{r, echo=TRUE}
+head(cars)
+```
+
+===
+  # The output$view depends on both the databaseInput reactive
+  # expression and input$obs, so will be re-executed whenever
+  # input$dataset or input$obs is changed. 
+
+```{r, eval=FALSE}
+ output$view <- renderTable({
+    head(datasetInput(), n = input$obs)
+  })
+```
+
+The end
